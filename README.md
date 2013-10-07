@@ -15,6 +15,6 @@ The Pontoluvian StraightJacket Puzzle
 
 A puzzle I first wrote in 1984 on the ZX Spectrum, now reincarnated.
 
-This PuzzleScript version didn't work until Rory O'Kane dived in a fixed the code. His stuff is here: https://github.com/roryokane
+This PuzzleScript version didn't work until Rory O'Kane dived in and fixed the code. His stuff is here: https://github.com/roryokane
 
 Play it at http://www.puzzlescript.net/play.html?p=6875591
