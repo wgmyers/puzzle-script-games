@@ -1,0 +1,400 @@
+title Run At Sign Run
+author Wayne Myers
+homepage www.conniptions.org
+
+require_player_movement
+
+========
+OBJECTS
+========
+
+Background
+BLACK
+
+Floor 
+BLACK Yellow
+
+00000
+00000
+00100
+00000
+00000
+
+
+Exit 
+White 
+.0... 
+..0..
+...0.
+..0..
+.0...     
+
+WinExit
+White
+0.000
+00.00
+000.0
+00.00
+0.000
+
+Wall     
+Blue Darkblue   
+.0.0.
+01010
+.0.0.
+01010
+.0.0.
+
+TWall     
+Blue DarkGreen   
+.0.0.
+01010
+.0.0.
+01010
+.0.0.
+
+Player0 
+#AAAAAA LightGrey     
+11111
+1...1
+1.111
+1....
+11111
+
+Player1 
+#AAAAAA LightGrey     
+11111
+1...1
+1.011
+1....
+11111
+
+Player2
+#AF9F9F LightGrey     
+11111
+1...1
+1.001
+1....
+11111
+
+Player3
+#B49494 LightGrey     
+11111
+1...1
+1.000
+1....
+11111
+
+Player4 
+#B98A8A LightGrey     
+11111
+1...0
+1.000
+1....
+11111
+
+Player5
+#BF7F7F LightGrey     
+11110
+1...0
+1.000
+1....
+11111
+
+Player6
+#C47474 LightGrey     
+11100
+1...0
+1.000
+1....
+11111
+
+Player7 
+#C96A6A LightGrey     
+11000
+1...0
+1.000
+1....
+11111
+
+Player8
+#CF5F5F LightGrey     
+10000
+1...0
+1.000
+1....
+11111
+
+Player9
+#D45555 LightGrey     
+00000
+1...0
+1.000
+1....
+11111
+
+Player10 
+#D94A4A LightGrey     
+00000
+0...0
+1.000
+1....
+11111
+
+Player11
+#DF3F3F LightGrey     
+00000
+0...0
+0.000
+1....
+11111
+
+Player12
+#E43535 LightGrey     
+00000
+0...0
+0.000
+0....
+11111
+
+Player13
+#E92A2A LightGrey     
+00000
+0...0
+0.000
+0....
+01111
+
+Player14
+#EF1F1F LightGrey     
+00000
+0...0
+0.000
+0....
+00111
+
+Player15 
+#F41515 LightGrey     
+00000
+0...0
+0.000
+0....
+00011
+
+Player16
+#F90A0A LightGrey     
+00000
+0...0
+0.000
+0....
+00001
+
+Player17
+#FF0000 LightGrey     
+00000
+0...0
+0.000
+0....
+00000
+
+DeadPlayer
+Grey
+..0..
+00000
+..0..
+..0..
+..0..
+
+Apple
+Red Green LightRed
+..1..
+.000.
+00020
+00000
+.000.
+
+Newt
+Green Black
+..00.
+..00.
+..1..
+..00.
+..00.
+=======
+LEGEND
+=======
+
+Player = Player0 or Player1 or Player2 or Player3 or Player4 or Player5 or Player6 or Player7 or Player8 or Player9 or Player10 or Player11 or Player12 or Player13 or Player14 or Player15 or Player16 or Player17
+
+X = Background
+# = Wall
+@ = Player0 and Floor
+. = Floor
+E = Exit
+A = Apple and Floor
+T = TWall
+: = Newt and Floor
+
+=======
+SOUNDS
+=======
+
+Player Move 50410306
+SFX0 92927704
+SFX1 2343303
+SFX2 41491903
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Floor, Exit, WinExit, TWall
+Player, Wall, Apple, Newt, DeadPlayer
+
+======
+RULES     
+======     
+
+[ Newt ] -> [ randomDir Newt ]
+[ > Newt | TWall ] -> [ Newt | TWall ]
+[ > Player | Newt | ] -> [ DeadPlayer | Newt | SFX0 ]
+[ > Player | Exit | ] -> [ Win | WinExit | SFX2 ]
+[ > Player | Apple | ] -> [ > Player0 | NO Apple | SFX1 ]
+[ Player17 | ] -> [ DeadPlayer | SFX0 ]
+[ Player16 ] -> [ Player17 ]
+[ Player15 ] -> [ Player16 ]
+[ Player14 ] -> [ Player15 ]
+[ Player13 ] -> [ Player14 ]
+[ Player12 ] -> [ Player13 ]
+[ Player11 ] -> [ Player12 ]
+[ Player10 ] -> [ Player11 ]
+[ Player9 ] -> [ Player10 ]
+[ Player8 ] -> [ Player9 ]
+[ Player7 ] -> [ Player8 ]
+[ Player6 ] -> [ Player7 ]
+[ Player5 ] -> [ Player6 ]
+[ Player4 ] -> [ Player5 ]
+[ Player3 ] -> [ Player4 ]
+[ Player2 ] -> [ Player3 ]
+[ Player1 ] -> [ Player2 ]
+[ Player0 ] -> [ Player1 ]
+
+
+
+==============
+WINCONDITIONS
+==============
+
+
+=======     
+LEVELS
+=======
+
+Message Level One: Find The Exit
+
+XXXXXXXXXXXXXXX
+X#############X
+X#...........#X
+X#...........#X
+X#...........#X
+X#.@.......E.#X
+X#...........#X
+X#...........#X
+X#...........#X
+X#############X
+XXXXXXXXXXXXXXX
+
+Message Level Two: Have An Apple
+
+XXXXXXXXXXXXXXXXX
+X###############X
+X#...#.........#X
+X#...#.....#...#X
+X#...#.....#...#X
+X#...#.....#...#X
+X#.@.#..A..#.E.#X
+X#...#.....#...#X
+X#...#.....#...#X
+X#...#.....#...#X
+X#.........#...#X
+X###############X
+XXXXXXXXXXXXXXXXX
+
+Message Level Three: Avoid The Newt
+
+XXXXXXXXXXXXXXXXXXX
+X#################X
+X#...#...........#X
+X#...#...A...#...#X
+X#...#.......#...#X
+X#...#.......#...#X
+X#...#.......#...#X
+X#.@.#...:...#.E.#X
+X#...#.......#...#X
+X#...#.......#...#X
+X#...#.......#...#X
+X#...#...A...#...#X
+X#...........#...#X
+X#################X
+XXXXXXXXXXXXXXXXXXX
+
+Message Level Four: There Is A Way
+
+XXXXXXXXXXXXXXX
+X#############X
+X#...#.......#X
+X#...T...#...#X
+X#...#...#.A.#X
+X#.@.#.:.#.E.#X
+X#...#...#...#X
+X#...#...#...#X
+X#.......#...#X
+X#############X
+XXXXXXXXXXXXXXX
+
+Message Level Five: The Big Maze
+
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################X
+X#............#.#...A...#X
+X#.#########.##.#..#..E.#X
+X#.#:......#.#..#.##....#X
+X#.#A....#.#.##.#..#A####X
+X#.#######.#..#.##.T.#A.#X
+X#.........#.##.#..#.#..#X
+X#########.#.#A.#.##.#..#X
+X#:#.....#.#.##.T..###..#X
+X#.#.#.#.#.#.........#..#X
+X#.#.#.#.#.#.#T#######..#X
+X#...#.#.#.#............#X
+X#####.#.#.#.#########..#X
+X#A.:..#.#.T.#A......#..#X
+X#######.#.A.#.#####.#.:#X
+X#.................#.####X
+X#######T#########.#...##X
+X#.................#.#.##X
+X#####T#####.###...#.#.##X
+X#.............#####.#.##X
+X#...###.###.#......A#.##X
+X#.@.#.#.#:###########.##X
+X#.....#A#.............##X
+X########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Message Level Six: The Little Lie
+
+XXXXXXXXXXXXXXX
+X#############X
+X#@..TT:T....#X
+X#TT..T...TT.#X
+X#ATT.T.TTTT.#X
+X#....T...TT.#X
+X#.TT:TAT.TA.#X
+X#.TTTTTT.T.T#X
+X#........T.E#X
+X#############X
+XXXXXXXXXXXXXXX
+
+Message Congratulations!
+
