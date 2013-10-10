@@ -2,7 +2,7 @@ title Animal Cascade
 author Wayne Myers
 homepage www.conniptions.org
 
-again_interval 0.02
+again_interval 0.01
 
 ========
 OBJECTS
@@ -197,43 +197,43 @@ DarkBrown Black
 01110
 
 Elephant
-DarkGrey Black LightGrey
+LightGrey Black #eeeeee Grey
 .000.
-01000
-20000
-00000
+31300
+32330
+30000
 .0..0
 
 UpMovingElephant
-DarkGrey Black LightGrey
+LightGrey Black #eeeeee Grey
 .000.
-01000
-20000
-00000
+31300
+32330
+30000
 .0..0
 
 DownMovingElephant
-Grey Black LightGrey
+LightGrey Black #eeeeee Grey
 .000.
-01000
-20000
-00000
+31300
+32330
+30000
 .0..0
 
 LeftMovingElephant
-Grey Black LightGrey
+LightGrey Black #eeeeee Grey
 .000.
-01000
-20000
-00000
+31300
+32330
+30000
 .0..0
 
 RightMovingElephant
-Grey Black LightGrey
+LightGrey Black #eeeeee Grey
 .000.
-01000
-20000
-00000
+31300
+32330
+30000
 .0..0
 
 =======
@@ -278,8 +278,11 @@ SOUNDS
 =======
 
 SFX0 40739509 (Mouse in hole)
-SFX1 74228503 (Chain reaction)
+SFX1 65087301 (Scared mouse)
 SFX2 10901907 (Hit wall)
+SFX3 45415107 (Scared dog)
+SFX4 80636305 (Scared cat)
+SFX5 3673502  (Scared elephant)
 
 ================
 COLLISIONLAYERS
@@ -314,16 +317,16 @@ startLoop
 [ RightMovingElephant ] -> [ Right RightMovingElephant ] again
 [ DownMovingElephant ] -> [ Down DownMovingElephant ] again
 
-right [ Elephant | Stationary Dog | ] -> [ Elephant | right Dog | SFX1 ]
-left [ Elephant | Stationary Dog | ] -> [ Elephant | left Dog | SFX1 ]
-up [ Elephant | Stationary Dog | ] -> [ Elephant | up Dog | SFX1 ]
-down [ Elephant | Stationary Dog | ] -> [ Elephant | down Dog | SFX1]
-right [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | right Dog | SFX1 ]
-left [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | left Dog | SFX1 ]
-up [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | up Dog | SFX1 ]
-down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | down Dog | SFX1]
+right [ Elephant | Stationary Dog | ] -> [ Elephant | right Dog | SFX3 ]
+left [ Elephant | Stationary Dog | ] -> [ Elephant | left Dog | SFX3 ]
+up [ Elephant | Stationary Dog | ] -> [ Elephant | up Dog | SFX3 ]
+down [ Elephant | Stationary Dog | ] -> [ Elephant | down Dog | SFX3]
+right [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | right Dog | SFX3 ]
+left [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | left Dog | SFX3 ]
+up [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | up Dog | SFX3 ]
+down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | down Dog | SFX3]
 
-[ > MovingElephant | Dog | ] -> [ Elephant | > Dog | SFX1 ]
+[ > MovingElephant | Dog | ] -> [ Elephant | > Dog | SFX3 ]
 [ > MovingElephant | Wall | ] -> [ Elephant | Wall | SFX2 ]
 
 (Dog rules)
@@ -337,16 +340,16 @@ down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElepha
 [ RightMovingDog ] -> [ Right RightMovingDog ] again
 [ DownMovingDog ] -> [ Down DownMovingDog ] again
 
-right [ Dog | Stationary Cat | ] -> [ Dog | right Cat | SFX1 ]
-left [ Dog | Stationary Cat | ] -> [ Dog | left Cat | SFX1 ]
-up [ Dog | Stationary Cat | ] -> [ Dog | up Cat | SFX1 ]
-down [ Dog | Stationary Cat | ] -> [ Dog | down Cat | SFX1]
-right [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | right Cat | SFX1 ]
-left [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | left Cat | SFX1 ]
-up [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | up Cat | SFX1 ]
-down [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | down Cat | SFX1]
+right [ Dog | Stationary Cat | ] -> [ Dog | right Cat | SFX4 ]
+left [ Dog | Stationary Cat | ] -> [ Dog | left Cat | SFX4 ]
+up [ Dog | Stationary Cat | ] -> [ Dog | up Cat | SFX4 ]
+down [ Dog | Stationary Cat | ] -> [ Dog | down Cat | SFX4]
+right [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | right Cat | SFX4 ]
+left [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | left Cat | SFX4 ]
+up [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | up Cat | SFX4 ]
+down [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | down Cat | SFX4]
 
-[ > MovingDog | Cat |  ] -> [ Dog | > Cat | SFX1 ]
+[ > MovingDog | Cat |  ] -> [ Dog | > Cat | SFX4 ]
 [ > MovingDog | Wall | ] -> [ Dog | Wall | SFX2 ]
 
 (Cat rules)
@@ -383,16 +386,16 @@ down [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | dow
 [ RightMovingMouse ] -> [ Right RightMovingMouse ] again
 [ DownMovingMouse ] -> [ Down DownMovingMouse ] again
 
-right [ Mouse | Stationary Elephant | ] -> [ Mouse | right Elephant | SFX1 ]
-left [ Mouse | Stationary Elephant | ] -> [ Mouse | left Elephant | SFX1 ]
-up [ Mouse | Stationary Elephant | ] -> [ Mouse | up Elephant | SFX1 ]
-down [ Mouse | Stationary Elephant | ] -> [ Mouse | down Elephant | SFX1]
-right [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | right Elephant | SFX1 ]
-left [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | left Elephant | SFX1 ]
-up [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | up Elephant | SFX1 ]
-down [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | down Elephant | SFX1]
+right [ Mouse | Stationary Elephant | ] -> [ Mouse | right Elephant | SFX5 ]
+left [ Mouse | Stationary Elephant | ] -> [ Mouse | left Elephant | SFX5 ]
+up [ Mouse | Stationary Elephant | ] -> [ Mouse | up Elephant | SFX5 ]
+down [ Mouse | Stationary Elephant | ] -> [ Mouse | down Elephant | SFX5]
+right [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | right Elephant | SFX5 ]
+left [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | left Elephant | SFX5 ]
+up [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | up Elephant | SFX5 ]
+down [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | down Elephant | SFX5]
 
-[ > MovingMouse | Elephant | ] -> [ Mouse | > Elephant | SFX1 ]
+[ > MovingMouse | Elephant | ] -> [ Mouse | > Elephant | SFX5 ]
 [ > MovingMouse | Wall | ] -> [ Mouse | Wall | SFX2 ]
 [ > MovingMouse | Hole | ] -> [ No MovingMouse | Hole | SFX0 ]
 
@@ -418,35 +421,76 @@ LEVELS
 
 Message Get the mouse into the hole
 
-XXXXXXXXXXXXXXXXXXX
-X#################X
-X#...#.........###X
-X#.............###X
-X###.M..#........#X
-X##H.............#X
-X###.............#X
-X#...............#X
-X#...............#X
-X#.....#.........#X
-X#............####X
-X#################X
-XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXX
+X###################X
+X#...............###X
+X#..#........#...###X
+X#...............###X
+X###...M..#........#X
+X##H..........#....#X
+X###..#.....#......#X
+X#.............#...#X
+X#..#....#.........#X
+X#..............####X
+X###################X
+XXXXXXXXXXXXXXXXXXXXX
+
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################X
+X#...##....###.###....###X
+X#...##....#H#........###X
+X#.M.............#......#X
+X#....##..##.....##.....#X
+X#.....#......##........#X
+X#..##.......###........#X
+X#..##....#.......###...#X
+X#.......##........##...#X
+X#...##..##........##...#X
+X#...##.................#X
+X###.........###.....####X
+X###.........###....#####X
+X########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+X################################X
+X#...............#..............#X
+X#.M..........................#.#X
+X#...#.....#...........#........#X
+X#..........................#...#X
+X#......#.....#....#............#X
+X#........#..#..................#X
+X#....................#.........#X
+X#.#............###......#......#X
+X#......#.......###...........#.#X
+X#..............#H#..#..........#X
+X#....#.........................#X
+X#..................#......#....#X
+X#.........#..#.................#X
+X#.....#................#.......#X
+X#..#...........................#X
+X#.......#......#............#..#X
+X#.................#............#X
+X################################X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
 
 Message Chase the mice into the holes
 
-XXXXXXXXXXXXXXXXXXX
-X#################X
-X#...............#X
-X#........#......#X
-X###.............#X
-X##H....0........#X
-X###.............#X
-X#...............#X
-X#.............###X
-X#........0....H##X
-X#C............###X
-X#################X
-XXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXX
+X###################X
+X#.................#X
+X#.........#.......#X
+X###...............#X
+X##H.....0.....#...#X
+X###...............#X
+X#.................#X
+X#....#..........###X
+X#.........0.....H##X
+X#C..............###X
+X###################X
+XXXXXXXXXXXXXXXXXXXXX
 
 Message The cat is scared of the dog
 
@@ -470,7 +514,7 @@ XXXXXXXXXXXXXXXXXXX
 X#################X
 X#...............#X
 X#.......1#......#X
-X###.............#X
+X###.......x......#X
 X##H....0........#X
 X###.............#X
 X#.............###X
