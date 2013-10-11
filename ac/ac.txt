@@ -2,7 +2,7 @@ title Animal Cascade
 author Wayne Myers
 homepage www.conniptions.org
 
-again_interval 0.01
+again_interval 0
 
 ========
 OBJECTS
@@ -255,6 +255,8 @@ H = Hole and Floor
 
 Player = Marker
 
+Obstacle = Wall or Hole
+
 VerticalMovingElephant = UpMovingElephant or DownMovingElephant
 HorizontalMovingElephant = LeftMovingElephant or RightMovingElephant
 MovingElephant = VerticalMovingElephant or HorizontalMovingElephant
@@ -326,8 +328,9 @@ left [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant |
 up [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | up Dog | SFX3 ]
 down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | down Dog | SFX3]
 
+[ > MovingElephant | Cat | ] -> [ Elephant | Cat | SFX5 ]
 [ > MovingElephant | Dog | ] -> [ Elephant | > Dog | SFX3 ]
-[ > MovingElephant | Wall | ] -> [ Elephant | Wall | SFX2 ]
+[ > MovingElephant | Obstacle | ] -> [ Elephant | Obstacle | SFX2 ]
 
 (Dog rules)
 [ UP Dog ] -> [ UP UpMovingDog ]
@@ -349,8 +352,9 @@ left [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | left Cat 
 up [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | up Cat | SFX4 ]
 down [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | down Cat | SFX4]
 
+[ > MovingDog | Mouse | ] -> [ Dog | Mouse | SFX3 ]
 [ > MovingDog | Cat |  ] -> [ Dog | > Cat | SFX4 ]
-[ > MovingDog | Wall | ] -> [ Dog | Wall | SFX2 ]
+[ > MovingDog | Obstacle | ] -> [ Dog | Obstacle | SFX2 ]
 
 (Cat rules)
 [ UP Cat ] -> [ UP UpMovingCat ]
@@ -372,8 +376,9 @@ left [ VerticalMovingCat | Stationary Mouse | ] -> [ VerticalMovingCat | left Mo
 up [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | up Mouse | SFX1 ]
 down [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | down Mouse | SFX1]
 
+[ > MovingCat | Elephant | ] -> [ Cat | Elephant | SFX4 ]
 [ > MovingCat | Mouse | ] -> [ Cat | > Mouse | SFX1 ]
-[ > MovingCat | Wall | ] -> [ Cat | Wall | SFX2 ]
+[ > MovingCat | Obstacle | ] -> [ Cat | Obstacle | SFX2 ]
 
 (Mouse rules)
 [ UP Mouse ] -> [ UP UpMovingMouse ]
@@ -395,11 +400,13 @@ left [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | 
 up [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | up Elephant | SFX5 ]
 down [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | down Elephant | SFX5]
 
+[ > MovingMouse | Dog | ] -> [ Mouse | Dog | SFX1 ]
 [ > MovingMouse | Elephant | ] -> [ Mouse | > Elephant | SFX5 ]
 [ > MovingMouse | Wall | ] -> [ Mouse | Wall | SFX2 ]
 [ > MovingMouse | Hole | ] -> [ No MovingMouse | Hole | SFX0 ]
 
 endloop
+
 
 (Late marker rules)
 
@@ -452,6 +459,10 @@ X###.........###....#####X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
+(
+
+Puzzles this size get too slow
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X################################X
 X#...............#..............#X
@@ -473,6 +484,7 @@ X#.......#......#............#..#X
 X#.................#............#X
 X################################X
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+)
 
 
 
@@ -502,7 +514,7 @@ X###....#...............#X
 X##H..................###X
 X###......0...........H##X
 X#........#.....#.....###X
-X#...........0....#....##X
+X#................#.....#X
 X#......0...............#X
 X#.C.......#H#..........#X
 X#.........###..........#X
@@ -527,13 +539,32 @@ X#...#...........#X
 X#################X
 XXXXXXXXXXXXXXXXXXX
 
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+X########################X
+X###..................###X
+X##H.......0.0........H##X
+X###..................###X
+X#......................#X
+X#..#...................#X
+X#.1.........#..........#X
+X#.........0............#X
+X##.........1...........#X
+X#.......D..............#X
+X###..................###X
+X##H.........0........H##X
+X###.......#..........###X
+X########################X
+XXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
 Message The dog is scared of the elephant
 
 XXXXXXXXXXXXXXXXXXX
 X#################X
 X#...............#X
 X#.......1#......#X
-X###.......x......#X
+X###.............#X
 X##H....0........#X
 X###.............#X
 X#.............###X
