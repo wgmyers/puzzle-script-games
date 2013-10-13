@@ -1,8 +1,10 @@
-title Animal Cascade
+title Memories Of Castlemouse
 author Wayne Myers
 homepage www.conniptions.org
 
+text_color lightgreen
 again_interval 0
+youtube CnjtQbU0Gg8
 
 ========
 OBJECTS
@@ -319,17 +321,18 @@ startLoop
 [ RightMovingElephant ] -> [ Right RightMovingElephant ] again
 [ DownMovingElephant ] -> [ Down DownMovingElephant ] again
 
-right [ Elephant | Stationary Dog | ] -> [ Elephant | right Dog | SFX3 ]
-left [ Elephant | Stationary Dog | ] -> [ Elephant | left Dog | SFX3 ]
-up [ Elephant | Stationary Dog | ] -> [ Elephant | up Dog | SFX3 ]
-down [ Elephant | Stationary Dog | ] -> [ Elephant | down Dog | SFX3]
-right [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | right Dog | SFX3 ]
-left [ VerticalMovingElephant | Stationary Dog | ] -> [ VerticalMovingElephant | left Dog | SFX3 ]
-up [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | up Dog | SFX3 ]
-down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElephant | down Dog | SFX3]
+right [ Elephant | Stationary Dog | No Obstacle ] -> [ Elephant | right Dog | SFX3 ]
+left [ Elephant | Stationary Dog | No Obstacle ] -> [ Elephant | left Dog | SFX3 ]
+up [ Elephant | Stationary Dog | No Obstacle ] -> [ Elephant | up Dog | SFX3 ]
+down [ Elephant | Stationary Dog | No Obstacle ] -> [ Elephant | down Dog | SFX3]
+right [ VerticalMovingElephant | Stationary Dog | No Obstacle ] -> [ VerticalMovingElephant | right Dog | SFX3 ]
+left [ VerticalMovingElephant | Stationary Dog | No Obstacle ] -> [ VerticalMovingElephant | left Dog | SFX3 ]
+up [ HorizontalMovingElephant | Stationary Dog | No Obstacle ] -> [ HorizontalMovingElephant | up Dog | SFX3 ]
+down [ HorizontalMovingElephant | Stationary Dog | No Obstacle ] -> [ HorizontalMovingElephant | down Dog | SFX3]
 
 [ > MovingElephant | Cat | ] -> [ Elephant | Cat | SFX5 ]
-[ > MovingElephant | Dog | ] -> [ Elephant | > Dog | SFX3 ]
+[ > MovingElephant | Dog | Obstacle | ] -> [ Elephant | Dog | Obstacle | SFX3 ]
+[ > MovingElephant | Dog | No Obstacle ] -> [ Elephant | > Dog | SFX3 ]
 [ > MovingElephant | Obstacle | ] -> [ Elephant | Obstacle | SFX2 ]
 
 (Dog rules)
@@ -343,17 +346,18 @@ down [ HorizontalMovingElephant | Stationary Dog | ] -> [ HorizontalMovingElepha
 [ RightMovingDog ] -> [ Right RightMovingDog ] again
 [ DownMovingDog ] -> [ Down DownMovingDog ] again
 
-right [ Dog | Stationary Cat | ] -> [ Dog | right Cat | SFX4 ]
-left [ Dog | Stationary Cat | ] -> [ Dog | left Cat | SFX4 ]
-up [ Dog | Stationary Cat | ] -> [ Dog | up Cat | SFX4 ]
-down [ Dog | Stationary Cat | ] -> [ Dog | down Cat | SFX4]
-right [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | right Cat | SFX4 ]
-left [ VerticalMovingDog | Stationary Cat | ] -> [ VerticalMovingDog | left Cat | SFX4 ]
-up [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | up Cat | SFX4 ]
-down [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | down Cat | SFX4]
+right [ Dog | Stationary Cat | No Obstacle ] -> [ Dog | right Cat | SFX4 ]
+left [ Dog | Stationary Cat | No Obstacle ] -> [ Dog | left Cat | SFX4 ]
+up [ Dog | Stationary Cat | No Obstacle ] -> [ Dog | up Cat | SFX4 ]
+down [ Dog | Stationary Cat | No Obstacle ] -> [ Dog | down Cat | SFX4]
+right [ VerticalMovingDog | Stationary Cat | No Obstacle ] -> [ VerticalMovingDog | right Cat | SFX4 ]
+left [ VerticalMovingDog | Stationary Cat | No Obstacle ] -> [ VerticalMovingDog | left Cat | SFX4 ]
+up [ HorizontalMovingDog | Stationary Cat | No Obstacle ] -> [ HorizontalMovingDog | up Cat | SFX4 ]
+down [ HorizontalMovingDog | Stationary Cat | No Obstacle ] -> [ HorizontalMovingDog | down Cat | SFX4]
 
 [ > MovingDog | Mouse | ] -> [ Dog | Mouse | SFX3 ]
-[ > MovingDog | Cat |  ] -> [ Dog | > Cat | SFX4 ]
+[ > MovingDog | Cat | Obstacle | ] -> [ Dog | Cat | Obstacle | SFX4 ]
+[ > MovingDog | Cat | No Obstacle ] -> [ Dog | > Cat | SFX4 ]
 [ > MovingDog | Obstacle | ] -> [ Dog | Obstacle | SFX2 ]
 
 (Cat rules)
@@ -367,17 +371,18 @@ down [ HorizontalMovingDog | Stationary Cat | ] -> [ HorizontalMovingDog | down 
 [ RightMovingCat ] -> [ Right RightMovingCat ] again
 [ DownMovingCat ] -> [ Down DownMovingCat ] again
 
-right [ Cat | Stationary Mouse | ] -> [ Cat | right Mouse | SFX1 ]
-left [ Cat | Stationary Mouse | ] -> [ Cat | left Mouse | SFX1 ]
-up [ Cat | Stationary Mouse | ] -> [ Cat | up Mouse | SFX1 ]
-down [ Cat | Stationary Mouse | ] -> [ Cat | down Mouse | SFX1]
-right [ VerticalMovingCat | Stationary Mouse | ] -> [ VerticalMovingCat | right Mouse | SFX1 ]
-left [ VerticalMovingCat | Stationary Mouse | ] -> [ VerticalMovingCat | left Mouse | SFX1 ]
-up [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | up Mouse | SFX1 ]
-down [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | down Mouse | SFX1]
+right [ Cat | Stationary Mouse | No Wall ] -> [ Cat | right Mouse | SFX1 ]
+left [ Cat | Stationary Mouse | No Wall ] -> [ Cat | left Mouse | SFX1 ]
+up [ Cat | Stationary Mouse | No Wall ] -> [ Cat | up Mouse | SFX1 ]
+down [ Cat | Stationary Mouse | No Wall ] -> [ Cat | down Mouse | SFX1]
+right [ VerticalMovingCat | Stationary Mouse | No Wall ] -> [ VerticalMovingCat | right Mouse | SFX1 ]
+left [ VerticalMovingCat | Stationary Mouse | No Wall ] -> [ VerticalMovingCat | left Mouse | SFX1 ]
+up [ HorizontalMovingCat | Stationary Mouse | No Wall ] -> [ HorizontalMovingCat | up Mouse | SFX1 ]
+down [ HorizontalMovingCat | Stationary Mouse | No Wall ] -> [ HorizontalMovingCat | down Mouse | SFX1]
 
 [ > MovingCat | Elephant | ] -> [ Cat | Elephant | SFX4 ]
-[ > MovingCat | Mouse | ] -> [ Cat | > Mouse | SFX1 ]
+[ > MovingCat | Mouse | Wall | ] -> [ Cat | Mouse | Wall | SFX1 ]
+[ > MovingCat | Mouse | No Wall ] -> [ Cat | > Mouse | SFX1 ]
 [ > MovingCat | Obstacle | ] -> [ Cat | Obstacle | SFX2 ]
 
 (Mouse rules)
@@ -391,17 +396,18 @@ down [ HorizontalMovingCat | Stationary Mouse | ] -> [ HorizontalMovingCat | dow
 [ RightMovingMouse ] -> [ Right RightMovingMouse ] again
 [ DownMovingMouse ] -> [ Down DownMovingMouse ] again
 
-right [ Mouse | Stationary Elephant | ] -> [ Mouse | right Elephant | SFX5 ]
-left [ Mouse | Stationary Elephant | ] -> [ Mouse | left Elephant | SFX5 ]
-up [ Mouse | Stationary Elephant | ] -> [ Mouse | up Elephant | SFX5 ]
-down [ Mouse | Stationary Elephant | ] -> [ Mouse | down Elephant | SFX5]
-right [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | right Elephant | SFX5 ]
-left [ VerticalMovingMouse | Stationary Elephant | ] -> [ VerticalMovingMouse | left Elephant | SFX5 ]
-up [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | up Elephant | SFX5 ]
-down [ HorizontalMovingMouse | Stationary Elephant | ] -> [ HorizontalMovingMouse | down Elephant | SFX5]
+right [ Mouse | Stationary Elephant | No Obstacle ] -> [ Mouse | right Elephant | SFX5 ]
+left [ Mouse | Stationary Elephant | No Obstacle ] -> [ Mouse | left Elephant | SFX5 ]
+up [ Mouse | Stationary Elephant | No Obstacle ] -> [ Mouse | up Elephant | SFX5 ]
+down [ Mouse | Stationary Elephant | No Obstacle ] -> [ Mouse | down Elephant | SFX5]
+right [ VerticalMovingMouse | Stationary Elephant | No Obstacle ] -> [ VerticalMovingMouse | right Elephant | SFX5 ]
+left [ VerticalMovingMouse | Stationary Elephant | No Obstacle ] -> [ VerticalMovingMouse | left Elephant | SFX5 ]
+up [ HorizontalMovingMouse | Stationary Elephant | No Obstacle ] -> [ HorizontalMovingMouse | up Elephant | SFX5 ]
+down [ HorizontalMovingMouse | Stationary Elephant | No Obstacle ] -> [ HorizontalMovingMouse | down Elephant | SFX5]
 
 [ > MovingMouse | Dog | ] -> [ Mouse | Dog | SFX1 ]
-[ > MovingMouse | Elephant | ] -> [ Mouse | > Elephant | SFX5 ]
+[ > MovingMouse | Elephant | Wall | ] -> [ Mouse | Elephant | Wall | SFX5 ]
+[ > MovingMouse | Elephant | No Obstacle ] -> [ Mouse | > Elephant | SFX5 ]
 [ > MovingMouse | Wall | ] -> [ Mouse | Wall | SFX2 ]
 [ > MovingMouse | Hole | ] -> [ No MovingMouse | Hole | SFX0 ]
 
@@ -426,7 +432,7 @@ No Mouse
 LEVELS
 =======
 
-Message Get the mouse into the hole
+Message In 2001 I was very lost.
 
 XXXXXXXXXXXXXXXXXXXXX
 X###################X
@@ -441,6 +447,8 @@ X#..#....#.........#X
 X#..............####X
 X###################X
 XXXXXXXXXXXXXXXXXXXXX
+
+Message I was just trying to hide from the world.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 X########################X
@@ -459,8 +467,7 @@ X###.........###....#####X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-
-Message Chase the mice into the holes
+Message I spent a lot of time playing a game called Castlemouse.
 
 XXXXXXXXXXXXXXXXXXXXX
 X###################X
@@ -475,6 +482,8 @@ X#.........0.....H##X
 X#C..............###X
 X###################X
 XXXXXXXXXXXXXXXXXXXXX
+
+Message Everything seemed to be slipping away from me.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 X########################X
@@ -493,8 +502,7 @@ X#.........###..........#X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-
-Message The cat is scared of the dog
+Message The world seemed full of fear.
 
 XXXXXXXXXXXXXXXXXXX
 X#################X
@@ -509,6 +517,8 @@ X#.#...........###X
 X#...#...........#X
 X#################X
 XXXXXXXXXXXXXXXXXXX
+
+Message Everything was falling apart for me at once.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 X########################X
@@ -527,8 +537,7 @@ X###.......#..........###X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-
-Message The dog is scared of the elephant
+Message I don't remember that time very well.
 
 XXXXXXXXXXXXXXXXXXX
 X#################X
@@ -543,6 +552,8 @@ X#...#.......E.###X
 X#...#...........#X
 X#################X
 XXXXXXXXXXXXXXXXXXX
+
+Message I don't even remember exactly how Castlemouse went.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 X########################X
@@ -561,8 +572,7 @@ X#......................#X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-
-Message The elephants are scared of mice
+Message Many things were set in motion at that time.
 
 XXXXXXXXXXXXXXXXXXX
 X#################X
@@ -578,6 +588,8 @@ X#.......0.......#X
 X#..........1....#X
 X#################X
 XXXXXXXXXXXXXXXXXXX
+
+Message Many unexpected chains of events, not all bad.
 
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 X########################X
@@ -596,5 +608,10 @@ X#.....................##X
 X########################X
 XXXXXXXXXXXXXXXXXXXXXXXXXX
 
+Message I'm doing a lot better now.
 
-Message That's all for now...
+Message Also, Castlemouse is a much better game than this - you should track it down.
+
+Message Thank you for playing.
+
+Message Music: Broken - Fit and the Conniptions (music.conniptions.org)

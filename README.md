@@ -19,13 +19,13 @@ This PuzzleScript version didn't work until Rory O'Kane dived in and fixed the c
 
 Play it at http://www.puzzlescript.net/play.html?p=6875591
 
-Animal Cascade
---------------
+Memories Of Castlemouse
+-----------------------
 
 See the 'ac' directory.
 
-This is a failed attempt to demake Castlemouse, which I haven't played in years, owing to issues getting Shockwave working under Wine.
+This started as a failed attempt to demake Castlemouse, which I haven't played in years, owing to issues getting Shockwave working under Wine. You can track down Castlemouse here: http://jayisgames.com/archives/2010/02/castlemouse.php
 
-Castlemouse here: http://jayisgames.com/archives/2010/02/castlemouse.php
+I sort of went somewhere else with it. See what you think: http://www.puzzlescript.net/play.html?p=6968201
 
-As much as I could remember of how it went, ten years after the last time I played it, here: http://www.puzzlescript.net/play.html?p=6928253
+
