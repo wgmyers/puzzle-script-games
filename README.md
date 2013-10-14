@@ -26,6 +26,6 @@ See the 'ac' directory.
 
 This started as a failed attempt to demake Castlemouse, which I haven't played in years, owing to issues getting Shockwave working under Wine. You can track down Castlemouse here: http://jayisgames.com/archives/2010/02/castlemouse.php
 
-I sort of went somewhere else with it. See what you think: http://www.puzzlescript.net/play.html?p=6968201
+I sort of went somewhere else with it. See what you think: http://www.puzzlescript.net/play.html?p=6976592
 
 
