@@ -1,0 +1,232 @@
+title Rain
+author Wayne Myers
+homepage www.conniptions.org
+
+zoomscreen 16x10
+(realtime_interval 0.2)
+
+========
+OBJECTS
+========
+
+Background
+DarkGrey
+
+Ground
+Green
+
+LivePlayer
+Grey Black Brown
+.000.
+.020.
+11111
+.111.
+.1.1.
+
+DeadPlayer
+Grey
+.000.
+00000
+.000.
+.000.
+.000.
+
+Rain1
+Blue Darkblue
+.0...
+.0.1.
+...1.
+.0.1.
+.0.1.
+
+Rain2
+Blue Darkblue
+.0.1.
+.0...
+.0.1.
+...1.
+.0.1.
+
+Rain3
+Blue Darkblue
+.0.1.
+.0.1.
+.0...
+.0.1.
+...1.
+
+
+Rain4
+Blue Darkblue
+...1.
+.0.1.
+.0.1.
+.0...
+.0.1.
+
+Rain5
+BlueDarkblue
+.0.1.
+...1.
+.0.1.
+.0.1.
+.0...
+
+Cloud
+Grey Black
+.111.
+10001
+00000
+10000
+.111.
+
+Cloudseed
+Black
+.....
+.....
+.....
+.....
+.....
+
+Water0
+Blue
+.....
+.....
+.....
+.....
+.....
+
+Water1
+Blue
+.....
+.....
+.....
+.....
+00000
+
+Water2
+Blue
+.....
+.....
+.....
+00000
+00000
+
+Water3
+Blue
+.....
+.....
+00000
+00000
+00000
+
+Water4
+Blue
+.....
+00000
+00000
+00000
+00000
+
+Water5
+Blue
+
+
+=======
+LEGEND
+=======
+
+. = Background
+@ = LivePlayer
+# = Ground
+C = Cloudseed
+D = Cloud
+
+Rain = Rain1 or Rain2 or Rain3 or Rain4 or Rain5
+Water = Water0 or Water1 or Water2 or Water3 or Water4 or Water5
+RainOnThis = Ground or Water5
+Player = LivePlayer or DeadPlayer
+
+=======
+SOUNDS
+=======
+
+SFX0 6650309
+SFX1 61990505
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Player, Ground,
+Cloud, Rain, CloudSeed
+Water
+
+======
+RULES
+======
+
+( Water rules )
+
+[ Rain Water4 ] -> [ Rain Water5 ]
+[ Rain Water3 ] -> [ Rain Water4 ]
+[ Rain Water2 ] -> [ Rain Water3 ]
+[ Rain Water1 ] -> [ Rain Water2 ]
+[ Rain Water0 ] -> [ Rain Water1 ]
+
+DOWN [ Rain No Water | RainOnThis ] -> [ Rain Water0 | RainOnThis SFX0 ]
+
+HORIZONTAL [ Water0 Rain | Water0 Rain | Water0 Rain ] -> [ Water1 Rain | Water1 Rain | Water1 Rain ] 
+HORIZONTAL [ RainOnThis | Water0 Rain | RainOnThis ] -> [ RainOnThis | Water1 Rain | RainOnThis ]
+
+
+HORIZONTAL [ Water | No Water No Ground ] -> [ | ]
+
+
+( Rain rules )
+random [ Rain ] -> [ Random Rain ]
+DOWN [ Rain | No Rain No RainOnThis ] -> [ Rain | Random Rain ]
+UP [ Rain | No Rain No Cloud ] -> [ | ]
+
+( Cloud rules )
+random [ Cloudseed ] -> [ Cloud ]
++ random [ Cloud ] -> [ Cloudseed ]
+DOWN [ Cloud | No Rain ] -> [ Cloud | Random Rain ]
+
+( Player rules )
+
+( Jumping implementation)
+[ Up Player | ] -> [ Up Player | SFX1 ]
+LEFT [ Left Player | No Ground ] ->  [ | Player ]
+RIGHT [ Right Player | No Ground ] -> [ | Player ]
+DOWN [ Player | No Ground ] -> [  | Player ]
+
+( Die if player falls in the water )
+[ Player Water5 ] -> [ DeadPlayer Water5 ] message "He's fallen in the water"
+
+late [ DeadPlayer ] -> restart
+
+==============
+WINCONDITIONS
+==============
+
+
+
+=======
+LEVELS
+=======
+
+.CCCCDDDCCCCCCDDDCCCCCDDDDDDDDDDCCCCC
+.....................................
+#....................................
+#@...................................
+##...................................
+###..................................
+####.....####.....#................##
+#####...######...###..............###
+######.##############............####
+######################..........#####
+#####################################
+#####################################
+
