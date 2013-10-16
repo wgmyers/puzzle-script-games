@@ -1,0 +1,191 @@
+title Snakeoban
+author Wayne Myers
+homepage www.conniptions.org
+
+require_player_movement
+
+========
+OBJECTS
+========
+
+Background
+Black DarkBlue
+00000
+00000
+00100
+00000
+00000
+
+
+Target
+Blue
+0...0
+.0.0.
+..0..
+.0.0.
+0...0
+
+Wall
+Grey DarkGrey
+00010
+11111
+01000
+11111
+00010
+
+Player
+Green Black Red Lightgrey Darkgreen
+.444.
+01010
+00200
+03230
+.2.2.
+
+PlayerBody
+Green Darkgreen Lightgreen
+.111.
+00020
+00000
+00000
+.000.
+
+PlayerTail
+Green Black Darkgreen Lightgreen
+.222.
+00030
+00000
+00100
+.010.
+
+Crate
+Brown Orange Yellow
+10000
+01220
+02120
+02210
+00001
+
+Apple
+Red Green LightRed
+..1..
+.000.
+00020
+00000
+.000.
+
+
+UpMarker
+RED
+..0..
+.000.
+0.0.0
+..0..
+..0..
+
+LeftMarker
+RED
+..0..
+.0...
+00000
+.0...
+..0..
+
+RightMarker
+RED
+..0..
+...0.
+00000
+...0.
+..0..
+
+DownMarker
+RED
+..0..
+..0..
+0.0.0
+.000.
+..0..
+
+=======
+LEGEND
+=======
+
+. = Background
+# = Wall
+@ = Player
+> = PlayerBody and RightMarker
+T = PlayerTail and RightMarker
+C = Crate
+O = Crate and Target
+X = Target
+A = Apple
+
+Marker = UpMarker or LeftMarker or RightMarker or DownMarker
+PlayerPart = Player or PlayerBody or PlayerTail
+
+=======
+SOUNDS
+=======
+
+Crate MOVE 36772507
+
+================
+COLLISIONLAYERS
+================
+
+
+Background,
+Target,
+Player, PlayerBody, PlayerTail, Wall, Crate, Apple
+Marker,
+
+======
+RULES
+======
+
+[ > Player | Crate ] -> [ > Player | > Crate ]
+
+left [ > Player | Apple ] -> [ PlayerBody Leftmarker | Player ]
+right [ > Player | Apple ] -> [ PlayerBody Rightmarker | Player ]
+up [ > Player | Apple ] -> [ PlayerBody Upmarker | Player ]
+down [ > Player | Apple ] -> [ PlayerBody Downmarker | Player ]
+
+[ left Player ] -> [ left Player Leftmarker ]
+[ right Player ] -> [ right Player Rightmarker ]
+[ up Player ] -> [ up Player Upmarker ]
+[ down Player ] -> [ down Player Downmarker ]
+
+startloop
+late left [ PlayerBody Leftmarker | No PlayerPart ] -> [ Leftmarker | PlayerBody ]
+late right [ PlayerBody Rightmarker | No PlayerPart ] -> [ Rightmarker | PlayerBody ]
+late up [ PlayerBody Upmarker | No PlayerPart ] -> [ Upmarker | PlayerBody ]
+late down [ PlayerBody Downmarker | No PlayerPart ] -> [ Downmarker | PlayerBody ]
+endloop
+
+late left [ PlayerTail Leftmarker | No PlayerPart ] -> [ | PlayerTail ]
+late right [ PlayerTail Rightmarker | No PlayerPart ] -> [ | PlayerTail ]
+late up [ PlayerTail Upmarker | No PlayerPart ] -> [ | PlayerTail ]
+late down [ PlayerTail Downmarker | No PlayerPart ] -> [ | PlayerTail ]
+
+
+==============
+WINCONDITIONS
+==============
+
+All Crate on Target
+
+=======
+LEVELS
+=======
+
+
+###########################
+#.........................#
+#.........A...............#
+#.........A...............#
+#.T>>>>@..A..C.........X..#
+#.........A...............#
+#.........A...............#
+#.........................#
+###########################
+
