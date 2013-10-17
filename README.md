@@ -28,4 +28,9 @@ This started as a failed attempt to demake Castlemouse, which I haven't played i
 
 I sort of went somewhere else with it. See what you think: http://www.puzzlescript.net/play.html?p=6976592
 
+Snakeoban
+---------
 
+Everyone playing with PuzzleScript must write a Sokoban variant. This is mine.
+
+Play it here: http://www.puzzlescript.net/play.html?p=7019377
