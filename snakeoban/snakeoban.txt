@@ -292,7 +292,18 @@ Message Crate Free
 /#######/
 /////////
 
-Message Vaguely Familiar
+Message Vaguely Familiar I
+
+/////////
+///#####/
+/###.R@#/
+/#X.O#.#/
+/#...C.#/
+/#.CX.A#/
+/#######/
+/////////
+
+Message Vaguely Familiar II
 
 //////////
 /########/
@@ -305,7 +316,7 @@ Message Vaguely Familiar
 /########/
 //////////
 
-Message Also Vaguely Familiar
+Message Vaguely Familiar III
 
 /////////////////////
 /////#####///////////
@@ -320,3 +331,24 @@ Message Also Vaguely Familiar
 /////#.....####..###/
 /////#######//####///
 /////////////////////
+
+Message Give Us A 'T'
+
+/////////////////////
+/###################/
+/#.................#/
+/#.R>@.CACACACACAC.#/
+/#.................#/
+/#########.#########/
+///////#.....#///////
+///////#.AAA.#///////
+///////#.....#///////
+///////#.XXX.#///////
+///////#.XXX.#///////
+///////#######///////
+/////////////////////
+
+Message Ah, so the last one is solvable.
+
+Message Thank you for playing!
+
