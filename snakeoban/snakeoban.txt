@@ -114,7 +114,13 @@ LEGEND
 # = Wall
 @ = Player
 > = PlayerBody and RightMarker
-T = PlayerTail and RightMarker
+R = PlayerTail and RightMarker
+< = PlayerBody and LeftMarker
+L = PlayerTail and LeftMarker
+^ = PlayerBody and UpMarker
+U = PlayerTail and UpMarker
+J = PlayerBody and DownMarker
+D = PlayerTail and DownMarker
 C = Crate
 O = Crate and Target
 X = Target
@@ -127,17 +133,20 @@ PlayerPart = Player or PlayerBody or PlayerTail
 SOUNDS
 =======
 
-Crate MOVE 36772507
+Restart 31950301
+Player MOVE 72499300
+Crate MOVE 19312507
+SFX0 22109702
 
 ================
 COLLISIONLAYERS
 ================
 
-
-Background,
-Target,
-Player, PlayerBody, PlayerTail, Wall, Crate, Apple
 Marker,
+Background,
+Target
+Player, PlayerBody, PlayerTail, Wall, Crate, Apple
+
 
 ======
 RULES
@@ -145,10 +154,10 @@ RULES
 
 [ > Player | Crate ] -> [ > Player | > Crate ]
 
-left [ > Player | Apple ] -> [ PlayerBody Leftmarker | Player ]
-right [ > Player | Apple ] -> [ PlayerBody Rightmarker | Player ]
-up [ > Player | Apple ] -> [ PlayerBody Upmarker | Player ]
-down [ > Player | Apple ] -> [ PlayerBody Downmarker | Player ]
+left [ > Player | Apple | ] -> [ PlayerBody Leftmarker | Player | SFX0]
+right [ > Player | Apple | ] -> [ PlayerBody Rightmarker | Player | SFX0 ]
+up [ > Player | Apple | ] -> [ PlayerBody Upmarker | Player | SFX0 ]
+down [ > Player | Apple | ] -> [ PlayerBody Downmarker | Player | SFX0 ]
 
 [ left Player ] -> [ left Player Leftmarker ]
 [ right Player ] -> [ right Player Rightmarker ]
@@ -173,19 +182,55 @@ WINCONDITIONS
 ==============
 
 All Crate on Target
+No Apple
 
 =======
 LEVELS
 =======
 
+Message Poisoned Apples
 
-###########################
+###############
+#...A......##X#
+#.C.#.C..C.#..#
+#...#......#..#
+##.##.A@<L.##.#
+#A.A#.......#.#
+#.X.#.........#
+#A.A#.....A..X#
+###############
+
+Message A Snake Must Eat
+
+#############
+#........#..#
+#.X......#X.#
+###A.CAC....#
+#R>@.AAA....#
+#....CAC.####
+#.X#......X.#
+#..#........#
+#############
+
+Message Apple Free
+
+#######
+#..##X#
+#.....#
+#@#C..#
+#^.CDX#
+#^<<<.#
+#######
+
+
+(Test level)
+(###########################
 #.........................#
 #.........A...............#
 #.........A...............#
-#.T>>>>@..A..C.........X..#
+#.R>>>>@..A..C.........X..#
 #.........A...............#
 #.........A...............#
 #.........................#
-###########################
+###########################)
 
