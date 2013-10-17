@@ -57,8 +57,16 @@ Green Black Darkgreen Lightgreen
 00100
 .010.
 
-Crate
+Crate1
 Brown Orange Yellow
+10000
+01220
+02120
+02210
+00001
+
+Crate2
+Brown Blue Yellow
 10000
 01220
 02120
@@ -121,22 +129,26 @@ L = PlayerTail and LeftMarker
 U = PlayerTail and UpMarker
 J = PlayerBody and DownMarker
 D = PlayerTail and DownMarker
-C = Crate
-O = Crate and Target
+C = Crate1
+O = Crate2 and Target
 X = Target
 A = Apple
 
 Marker = UpMarker or LeftMarker or RightMarker or DownMarker
 PlayerPart = Player or PlayerBody or PlayerTail
+Crate = Crate1 or Crate2
 
 =======
 SOUNDS
 =======
 
+Undo 50721302
 Restart 31950301
-Player MOVE 72499300
-Crate MOVE 19312507
-SFX0 22109702
+Player MOVE 71013707
+Crate MOVE 30715307
+SFX0 88208701  (Eat apple)
+SFX1 72499300  (Crate on target)
+SFX2 90267708  (Win, but where to bind it?)
 
 ================
 COLLISIONLAYERS
@@ -176,6 +188,8 @@ late right [ PlayerTail Rightmarker | No PlayerPart ] -> [ | PlayerTail ]
 late up [ PlayerTail Upmarker | No PlayerPart ] -> [ | PlayerTail ]
 late down [ PlayerTail Downmarker | No PlayerPart ] -> [ | PlayerTail ]
 
+late [ Crate1 Target ] -> [ Crate2 Target] SFX1
+late [ Crate2 No Target ] -> [ Crate1 ]
 
 ==============
 WINCONDITIONS
@@ -188,6 +202,44 @@ No Apple
 LEVELS
 =======
 
+
+Message Push The Blocks In The Usual Way
+
+#########
+#.......#
+#.X.C.X.#
+#...##..#
+#.CR>@C.#
+#..##...#
+#.X.C.X.#
+#.......#
+#########
+
+Message You Must Also Eat The Apples
+
+#########
+#.......#
+#.A.C.A.#
+#..###..#
+#.AR>@A.#
+#..###..#
+#.A.X.A.#
+#.......#
+#########
+
+Message A Square Meal
+
+#############
+#........#..#
+#.X......#X.#
+###A.CAC....#
+#R>@.AAA....#
+#....CAC.####
+#.X#......X.#
+#..#........#
+#############
+
+
 Message Poisoned Apples
 
 ###############
@@ -199,18 +251,6 @@ Message Poisoned Apples
 #.X.#.........#
 #A.A#.....A..X#
 ###############
-
-Message A Snake Must Eat
-
-#############
-#........#..#
-#.X......#X.#
-###A.CAC....#
-#R>@.AAA....#
-#....CAC.####
-#.X#......X.#
-#..#........#
-#############
 
 Message Apple Free
 
@@ -232,14 +272,14 @@ Message Crate Free
 #AAAAA#
 #######
 
+Message Vaguely Familiar
 
-(Test level)
-(###########################
-#.........................#
-#.........A...............#
-#.........A...............#
-#.R>>>>@..A..C.........X..#
-#.........A...............#
-#.........A...............#
-#.........................#
-###########################)
+########
+#...#..#
+#.A.#CX#
+#....CX#
+#...#CX#
+#.A.#..#
+#...#@L#
+########
+
