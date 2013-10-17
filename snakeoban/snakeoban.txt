@@ -8,14 +8,21 @@ require_player_movement
 OBJECTS
 ========
 
-Background
-Black DarkBlue
+Background1
+#000022 Black
 00000
 00000
 00100
 00000
 00000
 
+Background2
+Black #000022
+00000
+00000
+00100
+00000
+00000
 
 Target
 Blue
@@ -118,25 +125,27 @@ RED
 LEGEND
 =======
 
-. = Background
+. = Background1
+/ = Background2
 # = Wall
-@ = Player
-> = PlayerBody and RightMarker
-R = PlayerTail and RightMarker
-< = PlayerBody and LeftMarker
-L = PlayerTail and LeftMarker
-^ = PlayerBody and UpMarker
-U = PlayerTail and UpMarker
-J = PlayerBody and DownMarker
-D = PlayerTail and DownMarker
-C = Crate1
-O = Crate2 and Target
-X = Target
-A = Apple
+@ = Player and Background1
+> = PlayerBody and RightMarker and Background1
+R = PlayerTail and RightMarker and Background1
+< = PlayerBody and LeftMarker and Background1
+L = PlayerTail and LeftMarker and Background1
+^ = PlayerBody and UpMarker and Background1
+U = PlayerTail and UpMarker and Background1
+J = PlayerBody and DownMarker and Background1
+D = PlayerTail and DownMarker and Background1
+C = Crate1 and Background1
+O = Crate2 and Target and Background1
+X = Target and Background1
+A = Apple and Background1
 
 Marker = UpMarker or LeftMarker or RightMarker or DownMarker
 PlayerPart = Player or PlayerBody or PlayerTail
 Crate = Crate1 or Crate2
+Background = Background1 or Background2
 
 =======
 SOUNDS
@@ -205,81 +214,109 @@ LEVELS
 
 Message Push The Blocks In The Usual Way
 
-#########
-#.......#
-#.X.C.X.#
-#...##..#
-#.CR>@C.#
-#..##...#
-#.X.C.X.#
-#.......#
-#########
+///////////
+/#########/
+/#.......#/
+/#.X.C.X.#/
+/#...##..#/
+/#.CR>@C.#/
+/#..##...#/
+/#.X.C.X.#/
+/#.......#/
+/#########/
+///////////
 
 Message You Must Also Eat The Apples
 
-#########
-#.......#
-#.A.C.A.#
-#..###..#
-#.AR>@A.#
-#..###..#
-#.A.X.A.#
-#.......#
-#########
+///////////
+/#########/
+/#.......#/
+/#.A.C.A.#/
+/#..###..#/
+/#.AR>@A.#/
+/#..###..#/
+/#.A.X.A.#/
+/#.......#/
+/#########/
+///////////
 
 Message A Square Meal
 
-#############
-#........#..#
-#.X......#X.#
-###A.CAC....#
-#R>@.AAA....#
-#....CAC.####
-#.X#......X.#
-#..#........#
-#############
-
+///////////////
+/#############/
+/#........#..#/
+/#.X......#X.#/
+/###A.CAC....#/
+/#R>@.AAA....#/
+/#....CAC.####/
+/#.X#......X.#/
+/#..#........#/
+/#############/
+///////////////
 
 Message Poisoned Apples
 
-###############
-#...A......##X#
-#.C.#.C..C.#..#
-#...#......#..#
-##.##.A@<L.##.#
-#A.A#.......#.#
-#.X.#.........#
-#A.A#.....A..X#
-###############
+/////////////////
+/###############/
+/#...A......##X#/
+/#.C.#.C..C.#..#/
+/#...#......#..#/
+/##.##.A@<L.##.#/
+/#A.A#.......#.#/
+/#.X.#.........#/
+/#A.A#.....A..X#/
+/###############/
+/////////////////
 
 Message Apple Free
 
-#######
-#..##X#
-#.....#
-#@#C..#
-#^.CDX#
-#^<<<.#
-#######
+/////////
+/#######/
+/#..##X#/
+/#.....#/
+/#@#C..#/
+/#^.CDX#/
+/#^<<<.#/
+/#######/
+/////////
 
 Message Crate Free
 
-#######
-#AA.AA#
-#AADAA#
-#AAJAA#
-#AA@AA#
-#AAAAA#
-#######
+/////////
+/#######/
+/#AA.AA#/
+/#AADAA#/
+/#AAJAA#/
+/#AA@AA#/
+/#AAAAA#/
+/#######/
+/////////
 
 Message Vaguely Familiar
 
-########
-#...#..#
-#.A.#CX#
-#....CX#
-#...#CX#
-#.A.#..#
-#...#@L#
-########
+//////////
+/########/
+/#...#..#/
+/#.A.#CX#/
+/#....CX#/
+/#...#CX#/
+/#.A.#..#/
+/#...#@L#/
+/########/
+//////////
 
+Message Also Vaguely Familiar
+
+/////////////////////
+/////#####///////////
+/////#...#///////////
+/////#C..#///////////
+///###..C##//////////
+///#..C.C.#///####///
+/###.#.##.#///#..###/
+/#...#.A#.#####..XX#/
+/#.C..C..A.......XX#/
+/#####.###.#@L#..XX#/
+/////#.....####..###/
+/////#######//####///
+/////////////////////
