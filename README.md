@@ -1,14 +1,14 @@
 PuzzleScript Games
 ==================
 
-Some games written in PuzzleScript
+Some games written in [PuzzleScript](https://github.com/increpare/PuzzleScript).
 
 Run At Sign Run
 ---------------
 
 A simple game involving running about and not dying. See 'run' directory.
 
-Play it at http://www.puzzlescript.net/play.html?p=6851050
+Play it at http://www.puzzlescript.net/play.html?p=f0ca17a9f516245038b3
 
 The Pontoluvian StraightJacket Puzzle
 -------------------------------------

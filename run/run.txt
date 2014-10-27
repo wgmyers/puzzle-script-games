@@ -13,7 +13,6 @@ BLACK
 
 Floor 
 BLACK Yellow
-
 00000
 00000
 00100
